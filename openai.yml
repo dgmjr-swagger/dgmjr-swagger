@@ -3562,8 +3562,6 @@ components:
         - created_at
         - level
         - message
-
-x-oaiMeta:
   groups:
     - id: models
       title: Models
@@ -3648,3 +3646,11 @@ x-oaiMeta:
       warning:
         title: The Engines endpoints are deprecated.
         message: Please use their replacement, [Models](/docs/api-reference/models), instead. [Learn more](https://help.openai.com/TODO).
+  securitySchemes:
+    Basic:
+      type: http
+      scheme: Basic
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
