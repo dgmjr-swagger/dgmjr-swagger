@@ -19,8 +19,15 @@
     },
     "servers": [
         {
-            "url": "https://your-domain.atlassian.net/rest/api/3"
+         "url": "https://{site-name}.atlassian.net/rest/api/3",
+        "variables":
+        {
+            "site-name":{
+                "default":"your-domain"
+            
+            }
         }
+    }
     ],
     "tags": [
         {
