@@ -10,6 +10,10 @@ apis:
   Confluence_CLoud_REST_API@1.0.0:
   # Update the path to your OpenAPI root file
     root: ./Confluene_Cloud_REST_API.json
+  Statuspage@1.0.0:
+    root: ./Statuspage.json
+  OpenAI@1.2.0:
+    root: ./openai.yml
 
 extends:
   - recommended

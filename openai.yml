@@ -2078,6 +2078,7 @@ components:
 
             Note that <|endoftext|> is the document separator that the model sees during training, so if a prompt is not specified the model will generate as if from the beginning of a new document.
           default: '<|endoftext|>'
+          type: "string"
           nullable: true
           oneOf:
             - type: string
@@ -2178,7 +2179,6 @@ components:
           description: &completions_stop_description >
             Up to 4 sequences where the API will stop generating further tokens. The returned text will not contain the stop sequence.
           default: null
-          nullable: true
           oneOf:
             - type: string
               default: <|endoftext|>
@@ -2190,6 +2190,7 @@ components:
               items:
                 type: string
                 example: '["\n"]'
+              nullable: true
         presence_penalty:
           type: number
           default: 0
@@ -2964,7 +2965,7 @@ components:
               items:
                 type: string
                 example: '["\n"]'
-          nullable: true
+              nullable: true
         n:
           description: How many answers to generate for each question.
           type: integer
@@ -3579,7 +3580,8 @@ components:
         - created_at
         - level
         - message
-  groups:
+  x-oai-meta:
+    groups:
     - id: models
       title: Models
       description: |
