@@ -3,6 +3,9 @@ info:
   title: OpenAI API
   description: APIs for sampling from and fine-tuning language models
   version: '1.2.0'
+  license: 
+    url: https://opensource.org/unlicense
+    name: Unlicense
 servers:
   - url: https://api.openai.com/v1
 tags:
@@ -26,6 +29,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ListEnginesResponse'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
       x-oaiMeta:
         name: List engines
         group: engines
@@ -3580,8 +3589,23 @@ components:
         - created_at
         - level
         - message
-  x-oai-meta:
-    groups:
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+      required:
+        - message
+  securitySchemes:
+    Basic: 
+      type: http
+      scheme: basic
+    api_key:
+      type: apiKey
+      in: header
+      name: Authorization
+x-oai-meta:
+  groups:
     - id: models
       title: Models
       description: |
@@ -3630,7 +3654,6 @@ components:
       title: Moderations
       description: |
         Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
-
         Related guide: [Moderations](/docs/guides/moderation)
     - id: searches
       title: Searches
