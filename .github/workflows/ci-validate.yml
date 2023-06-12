@@ -25,14 +25,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # validate JSON and YAML files
-      - name: json-yaml-validate
-        uses: GrantBirki/json-yaml-validate@v1.4.0 # <--- replace with the latest version
-        with: 
-          mode: fail
-          comment: true
-          json_schema: .github/schemas/openapi/v3.1/schema.json
-          yaml_schema: .github/schemas/openapi/v3.1/schema.yaml
-          
+      - name: Validate *.json OpenAPI files against the official schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          file: '*.json'
+          schema: .github/schemas/openapi/v3.1/schema.json      
+          mode: lax
+
+      - name: Validate *.yml OpenAPI files against the official schema
+        uses: cardinalby/schema-validator-action@v3
+        with:
+          file: '*.yml'
+          schema: .github/schemas/openapi/v3.1/schema.yml      
+          mode: lax
+
           
           
