@@ -1,6 +1,6 @@
 # See https://redocly.com/docs/cli/configuration/
 
-organization: DGMJR
+organization: DGMJR-IO
 
 apis:
   # Update the apiName with your actual API name, and the version with your actual API version.
