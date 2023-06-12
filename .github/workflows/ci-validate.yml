@@ -31,8 +31,8 @@ jobs:
         with: 
           mode: fail
           comment: true
-          json_schema: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json
-          yaml_schema: https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.yaml
+          json_schema: .github/schemas/openapi/v3.1/schema.json
+          yaml_schema: .github/schemas/openapi/v3.1/schema.yaml
           
           
           
